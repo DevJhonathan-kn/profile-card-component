@@ -20,6 +20,33 @@ body {
   flex-direction: column;
   font-family: "Kumbh Sans", sans-serif;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  aspect-ratio: 1/1;
+  background: url(./images/bg-pattern-top.svg) center center no-repeat;
+  background-size: contain;
+  content: '';
+  left: -218px;
+  max-width: 978px;
+  position: absolute;
+  top: -400px;
+  width: 100%;
+}
+
+body::after {
+  aspect-ratio: 1/1;
+  background: url(./images/bg-pattern-bottom.svg) center center no-repeat;
+  background-size: contain;
+  bottom: -572px;
+  content: '';
+  max-width: 978px;
+  position: absolute;
+  right: -174px;
+  width: 200%;
+  z-index: -1;
 }
 
 .card {
@@ -85,4 +112,34 @@ body {
 .card__likes span {
   color: var(---Dark-grayish-blue);
   font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    box-sizing: border-box;
+    padding: 0 16px;
+  }
+
+  body::before {
+    left: -286px;
+    top: -218px;
+  }
+
+  body::after {
+    bottom: -592px;
+    right: -574px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body::before {
+    left: -167px;
+    top: -240px;
+    width: 110%;
+  }
+
+  body::after {
+    bottom: -446px;
+    right: -474px;
+  }
 }
