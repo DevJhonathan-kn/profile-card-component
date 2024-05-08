@@ -1,48 +1,145 @@
-:root{
-    ---Dark-cyan: hsl(185, 75%, 39%);
-    ---Very-dark-desaturated-blue: hsl(229, 23%, 23%);
-    ---Dark-grayish-blue: hsl(227, 10%, 46%);
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+
+:root {
+  ---Dark-cyan: hsl(185, 75%, 39%);
+  ---Very-dark-desaturated-blue: hsl(229, 23%, 23%);
+  ---Dark-grayish-blue: hsl(227, 10%, 46%);
 }
 
-.background{
-    position: absolute;
-    width: 900px;
-    height: 900px;
-    background-color: var(---Dark-cyan);
-    margin-left: 3%;
-    margin-top: 4%;
+body,
+html {
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+}
 
+body {
+  align-items: center;
+  background-color: var(---Dark-cyan);
+  display: flex;
+  flex-direction: column;
+  font-family: "Kumbh Sans", sans-serif;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
-.frontground{
-    position: relative;
-    width: 400px;    
-    height: 400px;
-    background-color: white ;
-    border-radius: 20px;
-    margin-left: 30%;
-    margin-top: 20%;
-}
-.card{
-    position: relative;
-    width: 400px;
-    height: 200px;
-    background-image: url(./images/bg-pattern-card.svg);
-    border-radius: 20px;
 
+body::before {
+  aspect-ratio: 1/1;
+  background: url(./images/bg-pattern-top.svg) center center no-repeat;
+  background-size: contain;
+  content: '';
+  left: -218px;
+  max-width: 978px;
+  position: absolute;
+  top: -400px;
+  width: 100%;
 }
-.photo{
-    position: absolute;
-    width: 100px; 
-    height: 100px;
-    background-image: url(./images/image-victor.jpg);
-    margin-top: 130px;
-    margin-left: 150px;
-    border-radius: 100%;
-    
-}
-.username{
 
+body::after {
+  aspect-ratio: 1/1;
+  background: url(./images/bg-pattern-bottom.svg) center center no-repeat;
+  background-size: contain;
+  bottom: -572px;
+  content: '';
+  max-width: 978px;
+  position: absolute;
+  right: -174px;
+  width: 200%;
+  z-index: -1;
 }
-.followers{
 
+.card {
+  background-color: white;
+  border-radius: 18px;
+  margin: 0 auto;
+  max-width: 400px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.card__wrapper {
+  position: relative;
+  border-radius: 20px;
+}
+
+.card__pattern {
+  width: 100%;
+}
+
+.card__photo {
+  aspect-ratio: 1/1;
+  border: 4px solid white;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto -48px;
+  overflow: hidden;
+  transform: translateY(-50%);
+}
+
+.card__name {
+  color: var(---Very-dark-desaturated-blue);
+  font-size: 1.4rem;
+}
+
+.card__age {
+  color: var(---Dark-grayish-blue);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.card__city {
+  color: var(---Dark-grayish-blue);
+  padding-bottom: 14px;
+}
+
+.card__social {
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  padding: 14px 32px 28px;
+}
+
+.card__likes h1 {
+  color: var(---Very-dark-desaturated-blue);
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.card__likes span {
+  color: var(---Dark-grayish-blue);
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    box-sizing: border-box;
+    padding: 0 16px;
+  }
+
+  body::before {
+    left: -286px;
+    top: -218px;
+  }
+
+  body::after {
+    bottom: -592px;
+    right: -574px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body::before {
+    left: -167px;
+    top: -240px;
+    width: 110%;
+  }
+
+  body::after {
+    bottom: -446px;
+    right: -474px;
+  }
 }
